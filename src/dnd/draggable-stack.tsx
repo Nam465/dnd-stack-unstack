@@ -5,7 +5,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd"
 function DraggableStack({ stack }: { stack: Stack }) {
     return (
         <div className="stack">
-            <Droppable type="Droppable" droppableId={stack.id} isDropDisabled>
+            <Droppable type="Droppable2" droppableId={stack.id} isDropDisabled>
                 {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.droppableProps}>
                         <div className="stack-title">{stack.content}</div>

@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.App {
+html, body {
   min-height: 100vh;
   text-align: center;
   font-size: calc(10px + 2vmin);
@@ -38,17 +38,17 @@ code {
   width: calc(100% / 3);
   user-select: none;
   background-color: white;
-  color: black;
 }
 
-.col .drag-item {
+.drag-item {
   background-color: #fff;
+  color: black;
   padding-bottom: 4px;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-.col .drag-item .drag-item-inner {
+.drag-item .drag-item-inner {
   background-color: darkorange;
 }
 

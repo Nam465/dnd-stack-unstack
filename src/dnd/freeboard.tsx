@@ -15,6 +15,7 @@ import initialData, {
 } from "./grid"
 import DraggableItem from "./draggable-item"
 import uniqid from "uniqid"
+import Tree, { mutateTree, moveItemOnTree } from '@atlaskit/tree';
 
 function Freeboard() {
     const [grid, setGrid] = useState(initialData)
@@ -48,7 +49,7 @@ function Freeboard() {
     }
 
     /**
-     * Drop a card on another card or a stack. 
+     * Drop a card on another card or a stack.
      * source Card come from Column
      * @param {Combine} combine
      * @param {DraggableLocation} source
@@ -184,6 +185,24 @@ function Freeboard() {
                         key={index}
                         droppableId={String(index)}
                         isCombineEnabled
+                        renderClone={(provided, snapshot, rubric) => {
+                            console.log(provided, snapshot, rubric)
+                            return (
+                                <div
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                ref={provided.innerRef}
+                            >
+                                <DraggableItem
+                                    item={
+                                        grid[Number(rubric.source.droppableId)][
+                                            rubric.source.index
+                                        ]
+                                    }
+                                />
+                            </div>
+                            )
+                        }}
                     >
                         {(provided, snapshot) => (
                             <div
